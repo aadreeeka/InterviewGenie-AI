@@ -3,6 +3,9 @@ import {PublicLayout} from "@/layout/public-layout";
 import AuthenticationLayout from "@/layout/auth-layout";
 import ProtectRoutes from "@/layout/protected-routes";
 import HomePage from "@/routes/home";
+import {ContactPage} from "@/routes/contact-us";
+import {AboutUsPage} from "@/routes/about-us";
+import Services from "@/routes/services";
 import {SignInPage} from "@/routes/sign-in";
 import {SignUpPage} from "@/routes/sign-up";
 import { MainLayout} from "@/layout/main-layout";
@@ -21,6 +24,10 @@ const App = () => {
         {/* public routes */}
         <Route element={<PublicLayout/>}>
         <Route index element ={<HomePage/>} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+          <Route path="/services" element={<Services />} />
+        
         </Route>
 
         {/* authentication routes */}

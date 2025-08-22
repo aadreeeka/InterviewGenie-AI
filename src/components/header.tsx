@@ -12,23 +12,26 @@ const Header = () => {
 
   return (
     <header
-      className={cn("w-full border-b duration-150 transition-all ease-in-out")}
+      className={cn(
+        "sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm transition-all ease-in-out duration-150"
+      )}
     >
       <Container>
-        <div className="flex items-center gap-4 w-full">
+        <div className="flex items-center w-full py-1 md:py-2">
           {/* logo section */}
           <LogoContainer />
 
           {/* navigation section */}
-          <nav className="hidden md:flex items-center gap-3">
+          <nav className="hidden md:flex items-center gap-4 ml-4">
             <NavigationRoutes />
             {userId && (
               <NavLink
-                to={"/generate"}
+                to="/generate"
                 className={({ isActive }) =>
                   cn(
-                    "text-base text-neutral-600",
-                    isActive && "text-neutral-900 font-semibold"
+                    "relative text-sm md:text-base text-neutral-600 transition duration-300",
+                    "after:content-[''] after:absolute after:w-0 after:h-[2px] after:left-0 after:-bottom-1 after:bg-teal-800 after:transition-all after:duration-300 hover:after:w-full",
+                    isActive && "text-neutral-900 font-semibold after:w-full"
                   )
                 }
               >
@@ -37,7 +40,7 @@ const Header = () => {
             )}
           </nav>
 
-          <div className="ml-auto flex items-center gap-6">
+          <div className="ml-auto flex items-center gap-3">
             {/* profile section */}
             <ProfileContainer />
 
@@ -51,3 +54,4 @@ const Header = () => {
 };
 
 export default Header;
+

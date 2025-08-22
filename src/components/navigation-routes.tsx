@@ -18,17 +18,18 @@ export const NavigationRoutes = ({
     >
       {MainRoutes.map((route) => (
         <NavLink
-          key={route.href}
-          to={route.href}
-          className={({ isActive }) =>
-            cn(
-              "text-base text-neutral-600",
-              isActive && "text-neutral-900 font-semibold"
-            )
-          }
-        >
-          {route.label}
-        </NavLink>
+  key={route.href}
+  to={route.href}
+ className={({ isActive }) =>
+  cn(
+    "relative text-base text-neutral-600 transition duration-300", // base styles
+    "after:content-[''] after:absolute after:w-0 after:h-[2px] after:left-0 after:-bottom-1 after:bg-teal-800 after:transition-all after:duration-300 hover:after:w-full", // underline animation with teal
+    isActive && "text-neutral-900 font-semibold after:w-full" // active state
+  )
+}
+>
+  {route.label}
+</NavLink>
       ))}
     </ul>
   );
